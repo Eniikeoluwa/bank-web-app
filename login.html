@@ -32,6 +32,7 @@
         let email = document.getElementById("email");
         let password = document.getElementById("password");
         let currentUser = localStorage.getItem("loggedUser");
+        let userPassword = localStorage.getItem("userPassword");
 
         function login(ev) {
         ev.preventDefault()
@@ -62,12 +63,13 @@
             return;
         }
 
+        if (password.value !== userPassword) {
+            alert("Incorrect email or password");
+            return;
+        }
+
         alert("Login sucessful!");
         window.location.href = "accountnumber.html"
-        // if(password !== storedPassword) {
-        //     alert("Invalid details")
-        //     return;
-        // }
         }
 </script>
 </body>
